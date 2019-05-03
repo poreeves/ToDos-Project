@@ -1,0 +1,32 @@
+<!--
+  Generated template for the ToDoPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>toDo</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <form [formGroup]="todo" (ngSubmit)="logForm()">
+        <ion-item>
+          <ion-label>Title</ion-label>
+          <ion-input type="text" formControlName="title"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Description</ion-label>
+          <ion-textarea formControlName="description"></ion-textarea>
+        </ion-item>
+        <button ion-button type="submit" [disabled]="!todo.valid">Submit</button>
+      </form>
+    <ion-item *ngFor = 'let item of toDoList'>
+      <ion-list>
+        {{item.title}}
+        <br> {{item.description}} 
+        <br> <button (click)= 'onDelete(item)'>Delete</button>
+      </ion-list>    
+  
+    </ion-item>
+</ion-content>
