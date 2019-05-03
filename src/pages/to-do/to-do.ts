@@ -16,7 +16,7 @@ import {Validators, FormBuilder, FormGroup } from '@angular/forms';
 export class ToDoPage {
   
   toDoList: any[]= []
-  private todo : FormGroup;
+  public todo : FormGroup;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
     this.todo = this.formBuilder.group({
