@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ToDoPage } from '../to-do/to-do';
 
 /**
  * Generated class for the LoginPage page.
@@ -14,8 +15,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'login.html',
 })
 export class LoginPage {
+  form = {};
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  signin(){
+    console.log('signing in')
+    console.log(this.form)
+    this.navCtrl.setRoot(ToDoPage);
   }
 
   ionViewDidLoad() {

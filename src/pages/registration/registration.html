@@ -6,10 +6,28 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>registration</ion-title>
+    <ion-title>Registration</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding color="primary">
+  <form  (ngSubmit)="register()">
+    <div text-center>
+      <h3>Create your account!</h3>
+    </div>
+      <ion-item>
+        <ion-input  name="name" type="text" placeholder="Name" [(ngModel)]="form.name" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input name="email" type="email" placeholder="your@email.com" [(ngModel)]="form.email" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input name="password" type="password" placeholder="Password" [(ngModel)]="form.password" required></ion-input>
+      </ion-item>
+    <div padding>
+      <button ion-button color="primary" block type="submit">Register</button>
+    </div>
+  </form>
 
+  
 </ion-content>
