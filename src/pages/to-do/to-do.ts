@@ -34,9 +34,12 @@ export class ToDoPage {
   }
 
   onDelete(item) {
-      this.toDoList.splice(item, 1)
+    let index = this.toDoList.indexOf(item, 0);
+    if (index > -1) {
+        this.toDoList.splice(index, 1);
+      // this.toDoList.splice(item, 1)
   }
-
+}
   ionViewDidLoad() {
     console.log('ionViewDidLoad ToDoPage');
   }
