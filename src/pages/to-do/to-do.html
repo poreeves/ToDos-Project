@@ -21,12 +21,17 @@
         </ion-item>
         <button ion-button type="submit" [disabled]="!todo.valid">Submit</button>
       </form>
-    <ion-item *ngFor = 'let item of toDoList'>
-      <ion-list>
-        {{item.title}}
-        <br> {{item.description}} 
-        <br> <button (click)= 'onDelete(item)'>delete</button>
-      </ion-list>    
+    <ion-list>
+      <ion-item-sliding *ngFor = 'let item of toDoList'>
+        <ion-item>{{item.title}}
+          <br> {{item.description}}  
+        </ion-item>
+        <ion-item-options side="right">
+        <button ion-button color="danger" (click)= 'onDelete(item)'> 
+            <ion-icon name="trash"></ion-icon>Delete</button>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>    
   
-    </ion-item>
+    
 </ion-content>
