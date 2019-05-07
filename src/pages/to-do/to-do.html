@@ -20,15 +20,18 @@
           <ion-textarea formControlName="description"></ion-textarea>
         </ion-item>
         <button ion-button type="submit" [disabled]="!todo.valid">Submit</button>
+        
       </form>
+      
     <ion-list>
       <ion-item-sliding *ngFor = 'let item of toDoList'>
         <ion-item>{{item.title}}
-          <br> {{item.description}}  
+          <br> {{item.description}}
+           <br> Time added: {{item.timestamp}}
         </ion-item>
         <ion-item-options side="right">
         <button ion-button color="danger" (click)= 'onDelete(item)'> 
-            <ion-icon name="trash"></ion-icon>Delete</button>
+            <ion-icon name="trash"></ion-icon></button>
         </ion-item-options>
       </ion-item-sliding>
     </ion-list>    

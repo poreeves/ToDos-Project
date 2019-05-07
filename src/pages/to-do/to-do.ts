@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {Validators, FormBuilder, FormGroup } from '@angular/forms';
+import * as moment from 'moment';
 /**
  * Generated class for the ToDoPage page.
  *
@@ -21,15 +22,17 @@ export class ToDoPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private formBuilder: FormBuilder) {
     this.todo = this.formBuilder.group({
       title: ['', Validators.required],
-      description: [''],
+      description: ['']
     });
   }
 
   logForm(){
-    
-    this.toDoList.push(this.todo.value)
+    let currentTime = moment().format('DD/MM/YYYY, h:mm:ss a')
+    this.todo.value['timestamp'] = currentTime
     console.log(this.todo.value)
+    this.toDoList.push(this.todo.value)
     console.log(this.toDoList)
+    console.log(moment().format('MMMM Do YYYY, h:mm:ss a'))
     this.todo.reset()
   }
 
@@ -37,7 +40,6 @@ export class ToDoPage {
     let index = this.toDoList.indexOf(item, 0);
     if (index > -1) {
         this.toDoList.splice(index, 1);
-      // this.toDoList.splice(item, 1)
   }
 }
   ionViewDidLoad() {
