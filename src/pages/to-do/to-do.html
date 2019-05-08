@@ -27,7 +27,7 @@
       <ion-item-sliding *ngFor = 'let item of toDoList'>
         <ion-item>{{item.title}}
           <br> {{item.description}}
-           <br> Time added: {{item.timestamp}}
+           <br> Added on: {{item.timestamp}}
         </ion-item>
         <ion-item-options side="right">
         <button ion-button color="danger" (click)= 'onDelete(item)'> 
